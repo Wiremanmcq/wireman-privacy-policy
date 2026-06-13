@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — Wireman MCQ App</title>
+  <style>
+    /* ─── Design Tokens ──────────────────────────────────────────── */
+    :root {
+      --bg:             #F4F7FB;
+      --card:           #FFFFFF;
+      --header-bg:      #0B1F3A;
+      --header-border:  #1A3A60;
+      --accent:         #1565C0;
+      --accent-mid:     #1E88E5;
+      --accent-light:   #E3F0FF;
+      --accent-badge:   #DBEAFE;
+      --text:           #1A2B3C;
+      --text-muted:     #546E7A;
+      --border:         #DDE4EE;
+      --divider:        #EBF0F7;
+      --radius-card:    14px;
+      --radius-badge:   6px;
+      --shadow:         0 2px 16px rgba(21, 101, 192, 0.08);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg:             #0D1117;
+        --card:           #161C26;
+        --header-bg:      #060D18;
+        --header-border:  #1C2D45;
+        --accent:         #4D9FFF;
+        --accent-mid:     #58A6FF;
+        --accent-light:   #1C2B3A;
+        --accent-badge:   #162033;
+        --text:           #E2EAF4;
+        --text-muted:     #8B9BB0;
+        --border:         #232E3E;
+        --divider:        #1A2332;
+        --shadow:         0 2px 20px rgba(0, 0, 0, 0.4);
+      }
+    }
+
+    /* ─── Reset & Base ───────────────────────────────────────────── */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                   "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+      font-size: 16px;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── Page Shell ─────────────────────────────────────────────── */
+    .page-wrapper {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ─── Site Header ────────────────────────────────────────────── */
+    .site-header {
+      background-color: var(--header-bg);
+      border-bottom: 1px solid var(--header-border);
+      padding: 40px 24px 36px;
+      text-align: center;
+    }
+
+    .site-header .app-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 64px;
+      height: 64px;
+      background: linear-gradient(135deg, #1E88E5 0%, #0D47A1 100%);
+      border-radius: 16px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 20px rgba(30, 136, 229, 0.35);
+    }
+
+    .site-header .app-icon svg {
+      width: 34px;
+      height: 34px;
+      fill: #FFFFFF;
+    }
+
+    .site-header .app-name {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #64A8F0;
+      margin-bottom: 8px;
+    }
+
+    .site-header h1 {
+      font-size: clamp(24px, 5vw, 34px);
+      font-weight: 700;
+      color: #EEF3FA;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 14px;
+    }
+
+    .site-header .last-updated {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.10);
+      border-radius: 20px;
+      padding: 5px 14px;
+      font-size: 13px;
+      color: #8AAFCE;
+      letter-spacing: 0.01em;
+    }
+
+    .site-header .last-updated::before {
+      content: '';
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      background: #4CAF50;
+      border-radius: 50%;
+      box-shadow: 0 0 6px rgba(76, 175, 80, 0.6);
+    }
+
+    /* ─── Main Content ───────────────────────────────────────────── */
+    main {
+      flex: 1;
+      width: 100%;
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 40px 20px 60px;
+    }
+
+    /* ─── Policy Card ────────────────────────────────────────────── */
+    .policy-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    /* ─── Policy Section ─────────────────────────────────────────── */
+    .policy-section {
+      padding: 36px 40px;
+      border-bottom: 1px solid var(--divider);
+    }
+
+    .policy-section:last-child {
+      border-bottom: none;
+    }
+
+    /* ─── Section Heading ────────────────────────────────────────── */
+    .section-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    .section-badge {
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 32px;
+      height: 32px;
+      padding: 0 9px;
+      background: var(--accent-badge);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      border-radius: var(--radius-badge);
+      border: 1px solid rgba(21, 101, 192, 0.15);
+      margin-top: 3px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .section-badge {
+        border-color: rgba(77, 159, 255, 0.20);
+      }
+    }
+
+    .section-header h2 {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.01em;
+      line-height: 1.35;
+      padding-top: 5px;
+    }
+
+    /* ─── Body Text ──────────────────────────────────────────────── */
+    .policy-section p {
+      font-size: 15px;
+      color: var(--text);
+      line-height: 1.78;
+      margin-bottom: 14px;
+    }
+
+    .policy-section p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* ─── Lists ──────────────────────────────────────────────────── */
+    .policy-section ul {
+      list-style: none;
+      padding: 0;
+      margin: 16px 0;
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      overflow: hidden;
+    }
+
+    .policy-section ul li {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      padding: 10px 18px;
+      font-size: 14.5px;
+      color: var(--text);
+      border-bottom: 1px solid var(--divider);
+    }
+
+    .policy-section ul li:last-child {
+      border-bottom: none;
+    }
+
+    .policy-section ul li::before {
+      content: '';
+      flex-shrink: 0;
+      width: 6px;
+      height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+      margin-top: 7px;
+    }
+
+    /* ─── Contact Section ────────────────────────────────────────── */
+    .contact-block {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      background: var(--accent-light);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px 22px;
+      margin-top: 14px;
+    }
+
+    .contact-block .contact-app-name {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .contact-block .contact-email-label {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-top: 8px;
+    }
+
+    .contact-block .contact-email {
+      font-size: 15px;
+      color: var(--accent-mid);
+      font-weight: 500;
+      word-break: break-all;
+      text-decoration: none;
+    }
+
+    .contact-block .contact-email:hover {
+      text-decoration: underline;
+    }
+
+    /* ─── Footer ─────────────────────────────────────────────────── */
+    footer {
+      text-align: center;
+      padding: 28px 20px;
+      font-size: 13px;
+      color: var(--text-muted);
+      border-top: 1px solid var(--divider);
+    }
+
+    footer span {
+      color: var(--accent);
+    }
+
+    /* ─── Mobile ─────────────────────────────────────────────────── */
+    @media (max-width: 600px) {
+      .site-header {
+        padding: 32px 20px 28px;
+      }
+
+      .site-header .app-icon {
+        width: 56px;
+        height: 56px;
+        border-radius: 14px;
+      }
+
+      main {
+        padding: 24px 14px 48px;
+      }
+
+      .policy-section {
+        padding: 28px 22px;
+      }
+
+      .section-header h2 {
+        font-size: 16px;
+      }
+
+      .policy-section p,
+      .policy-section ul li {
+        font-size: 14.5px;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .policy-section {
+        padding: 22px 16px;
+      }
+
+      .section-badge {
+        min-width: 28px;
+        height: 28px;
+        font-size: 11px;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrapper">
+
+  <!-- ─── Header ──────────────────────────────────────────────── -->
+  <header class="site-header">
+    <div class="app-icon" aria-hidden="true">
+      <!-- Bolt / electrical icon — wireman motif -->
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M13 2L4.09 12.96A1 1 0 0 0 5 14.5h6.5l-1 7.5 8.91-10.96A1 1 0 0 0 18.5 9.5H12l1-7.5z"/>
+      </svg>
+    </div>
+    <p class="app-name">Wireman MCQ App</p>
+    <h1>Privacy Policy</h1>
+    <span class="last-updated">Last Updated: June 2026</span>
+  </header>
+
+  <!-- ─── Content ─────────────────────────────────────────────── -->
+  <main>
+    <div class="policy-card">
+
+      <!-- 1. Introduction -->
+      <section class="policy-section">
+        <div class="section-header">
+          <span class="section-badge">01</span>
+          <h2>Introduction</h2>
+        </div>
+        <p>Wireman MCQ App is an educational application developed to help ITI Wireman students, trainees, apprentices, and technical learners prepare for examinations through practice questions, mock tests, and progress tracking.</p>
+        <p>The application is designed to operate fully offline and does not require an internet connection for normal use.</p>
+        <p>By using Wireman MCQ App, you agree to the practices described in this Privacy Policy.</p>
+      </section>
+
+      <!-- 2. Information Stored -->
+      <section class="policy-section">
+        <div class="section-header">
+          <span class="section-badge">02</span>
+          <h2>Information Stored on Your Device</h2>
+        </div>
+        <p>To provide core application functionality, Wireman MCQ App stores certain information locally on your device, including:</p>
+        <ul>
+          <li>Language preference</li>
+          <li>Theme preference</li>
+          <li>Selected study year</li>
+          <li>Onboarding status</li>
+          <li>Bookmarked questions</li>
+          <li>Quiz progress</li>
+          <li>Chapter progress</li>
+          <li>Test history</li>
+          <li>CBT practice history</li>
+          <li>Premium access status</li>
+          <li>Other application settings necessary for normal operation</li>
+        </ul>
+        <p>This information is stored only on your device and is used solely to provide application features and functionality.</p>
+      </section>
+
+      <!-- 3. Personal Information -->
+      <section class="policy-section">
+        <div class="section-header">
+          <span class="section-badge">03</span>
+          <h2>Personal Information</h2>
+        </div>
+        <p>Wireman MCQ App does not require user registration.</p>
+        <p>The application does not collect, request, store, or transmit personal information such as:</p>
+        <ul>
+          <li>Name</li>
+          <li>Email address</li>
+          <li>Phone number</li>
+          <li>Residential address</li>
+          <li>Photographs</li>
+          <li>Contact lists</li>
+          <li>Messages</li>
+        </ul>
+      </section>
+
+      <!-- 4. Data Collection -->
+      <section class="policy-section">
+        <div class="section-header">
+          <span class="section-badge">04</span>
+          <h2>Data Collection</h2>
+        </div>
+        <p>Wireman MCQ App does not collect user data on external servers.</p>
+        <p>The application does not operate user accounts, cloud storage systems, or remote databases for storing user study information.</p>
+        <p>Progress, bookmarks, preferences, and other application data remain stored locally on the user's device.</p>
+      </section>
+
+      <!-- 5. Internet Usage -->
+      <section class="policy-section">
+        <div class="section-header">
+          <span class="section-badge">05</span>
+          <h2>Internet Usage</h2>
+        </div>
+        <p>Wireman MCQ App is designed to function fully offline.</p>
+        <p>An internet connection is not required for:</p>
+        <ul>
+          <li>Studying questions</li>
+          <li>Taking tests</li>
+          <li>Viewing progress</li>
+          <li>Accessing bookmarks</li>
+          <li>Using CBT practice features</li>
+          <li>Accessing educational content included within the application</li>
+        </ul>
+        <p>All question content, study material, progress tracking, bookmarks, and test functionality included in the application are available offline after installation.</p>
+      </section>
+
+      <!-- 6. In-App Purchases -->
+      <section class="policy-section">
+        <div class="section-header">
+          <span class="section-badge">06</span>
+          <h2>In-App Purchases and Premium Features</h2>
+        </div>
+        <p>Wireman MCQ App offers an optional Premium subscription that unlocks additional features within the application.</p>
+        <p>Payment transactions are processed entirely through Google Play Billing.</p>
+        <p>Wireman MCQ App does not handle, receive, store, or have access to any payment card information, UPI information, banking information, or billing credentials.</p>
+        <p>Payment-related information is managed by Google according to Google's policies and terms.</p>
+      </section>
+
+      <!-- 7. Third-Party Services -->
+      <section class="policy-section">
+        <div class="section-header">
+          <span class="section-badge">07</span>
+          <h2>Third-Party Services</h2>
+        </div>
+        <p>The application may interact with the following platform services where applicable:</p>
+        <ul>
+          <li>Google Play Store</li>
+          <li>Google Play Billing</li>
+        </ul>
+        <p>There are no third-party advertising, analytics, or user-tracking services included in the application.</p>
+      </section>
+
+      <!-- 8. Data Removal -->
+      <section class="policy-section">
+        <div class="section-header">
+          <span class="section-badge">08</span>
+          <h2>Data Removal and User Control</h2>
+        </div>
+        <p>Users maintain full control over locally stored application data.</p>
+        <p>Available options may include:</p>
+        <ul>
+          <li>Reset Progress</li>
+          <li>Clear application data through device settings</li>
+          <li>Uninstall the application</li>
+        </ul>
+        <p>Uninstalling the application removes locally stored application data from the device, including progress, bookmarks, and preferences.</p>
+        <p>Eligible Premium purchases may be restored using the Restore Purchase feature provided through Google Play Billing, subject to Google Play policies and account eligibility.</p>
+      </section>
+
+      <!-- 9. Educational Use -->
+      <section class="policy-section">
+        <div class="section-header">
+          <span class="section-badge">09</span>
+          <h2>Educational Use</h2>
+        </div>
+        <p>Wireman MCQ App is intended for educational and examination preparation purposes for ITI students, trainees, apprentices, and other technical learners.</p>
+      </section>
+
+      <!-- 10. Data Security -->
+      <section class="policy-section">
+        <div class="section-header">
+          <span class="section-badge">10</span>
+          <h2>Data Security</h2>
+        </div>
+        <p>Most application data is stored locally on the user's device.</p>
+        <p>Users are responsible for maintaining the security of their own devices and protecting access to the application.</p>
+      </section>
+
+      <!-- 11. Changes -->
+      <section class="policy-section">
+        <div class="section-header">
+          <span class="section-badge">11</span>
+          <h2>Changes to This Privacy Policy</h2>
+        </div>
+        <p>This Privacy Policy may be updated from time to time.</p>
+        <p>Any future updates will be published with a revised &ldquo;Last Updated&rdquo; date.</p>
+        <p>Continued use of the application after changes become effective constitutes acceptance of the updated Privacy Policy.</p>
+      </section>
+
+      <!-- 12. Contact Us -->
+      <section class="policy-section">
+        <div class="section-header">
+          <span class="section-badge">12</span>
+          <h2>Contact Us</h2>
+        </div>
+        <p>If you have any questions regarding this Privacy Policy, please contact:</p>
+        <div class="contact-block">
+          <span class="contact-app-name">Wireman MCQ App</span>
+          <span class="contact-email-label">Email</span>
+          <a href="mailto:wiremanmcqapp@gmail.com" class="contact-email">wiremanmcqapp@gmail.com</a>
+        </div>
+      </section>
+
+    </div><!-- /.policy-card -->
+  </main>
+
+  <!-- ─── Footer ───────────────────────────────────────────────── -->
+  <footer>
+    &copy; 2026 <span>Wireman MCQ App</span>. All rights reserved.
+  </footer>
+
+</div><!-- /.page-wrapper -->
+</body>
+</html>
